@@ -27,6 +27,8 @@ function App() {
     );
   }
 
+  console.log("APP executed with selectedTopic = ", selectedTopic);
+
   return (
     <div>
       <Header />
