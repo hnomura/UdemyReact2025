@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol, isActive }) {
+export default function Player({
+  initialName,
+  symbol,
+  isActive,
+  onNameChange,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
 
@@ -19,6 +24,10 @@ export default function Player({ initialName, symbol, isActive }) {
   }
 
   function handleEditClick() {
+    if (isEditing) {
+      // notify latset playerName to parent component when editing ends
+      onNameChange(symbol, playerName);
+    }
     setIsEditing((prev) => !prev);
   }
 
